@@ -25,14 +25,18 @@ To set up the application, follow these steps:
    pip install -r requirements.txt
    ```
 
-## Usage
+## Usage 🚀
 
 ### Running the Application
 To run the application, execute the following command:
 ```bash
-uvicorn main:app --reload
+uvicorn main:application --host 0.0.0.0 --port 8080
 ```
-
+### Running the Application By Docker 🐳
+run this command:
+```bash
+docker-compose -f ./docker_compose.yaml up -d --build
+```
 ### API Endpoints
 
 - `GET /gene/htree`
