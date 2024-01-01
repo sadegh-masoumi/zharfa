@@ -2,17 +2,17 @@ Certainly! Below is an example README content for a FastAPI application that clu
 
 ---
 
-# FastAPI PCA Clustering Application
+# FastAPI PCA Clustering Application 🧬
 
-## Overview
+## Overview 🤓
 This FastAPI application is designed to perform clustering on PCA-transformed data. It provides API endpoints to access the clustered data and to filter it based on latitude and longitude coordinates.
 
-## Features
+## Features 🧪
 - **PCA Data Clustering:** Cluster PCA-transformed data using a specified clustering algorithm.
 - **API Endpoints:** Retrieve cluster information and details via RESTful endpoints.
 - **Geographical Filtering:** Filter data based on latitude and longitude parameters.
 
-## Installation
+## Installation 🔨
 
 To set up the application, follow these steps:
 
