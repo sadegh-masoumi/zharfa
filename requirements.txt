@@ -1,0 +1,4 @@
+uvicorn==0.25.0
+fast-api==0.108.0
+numpy==1.26.2
+pandas==2.1.3
