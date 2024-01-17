@@ -29,9 +29,11 @@ def start_up():
             labels = get_labels(df[["PC1", "PC2", "PC3"]])
             one = df[labels == 1]
             zero = df[labels == 0]
+
             res[id] = zero.ID.values.tolist()
             res[id + 1] = one.ID.values.tolist()
-            hcd(one, id + 2)
+
+            hcd(zero, id + 1)
             hcd(one, id + 2)
 
     hcd(df, 0)

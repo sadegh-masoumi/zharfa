@@ -11,16 +11,12 @@ logger = logging.getLogger("Cache 🗃️")
 
 
 def calculate_center_and_radius(sw_lon, sw_lat, ne_lon, ne_lat):
-    """
-    Calculate the center and radius covering the bounding box defined by
-    South-West (sw_lon, sw_lat) and North-East (ne_lon, ne_lat) coordinates.
-    """
     center_lon = (sw_lon + ne_lon) / 2
     center_lat = (sw_lat + ne_lat) / 2
 
     radius_lon = abs(ne_lon - sw_lon) / 2
     radius_lat = abs(ne_lat - sw_lat) / 2
-    radius = max(radius_lon, radius_lat) * 111  # Convert to kilometers (approximation)
+    radius = max(radius_lon, radius_lat) * 111
 
     return center_lon, center_lat, radius
 
@@ -31,14 +27,15 @@ class Cache:
     def __new__(cls, *args, **kwargs):
         if Cache.obj is None:
             obj = super(Cache, cls).__new__(cls)
+            logger.info("Connecting to Redis ... ⌛️")
+            obj.client = redis.Redis(port=REDIS_PORT, host=REDIS_HOST, db=0)
+            logger.info("Connected to Redis ✅")
             Cache.obj = obj
             return obj
         return Cache.obj
 
     def __init__(self):
-        logger.info("Connecting to Redis ... ⌛️")
-        self.client = redis.Redis(port=REDIS_PORT, host=REDIS_HOST, db=0)
-        logger.info("Connected to Redis ✅")
+        pass
 
     @staticmethod
     def set_clusters(data: dict):
